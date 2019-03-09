@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<main>
+		<div id="results">
+		   <div class="container">
+			   <div class="row">
+				   <div class="col-lg-3 col-md-4 col-10"></div>
+				   <div class="col-lg-9 col-md-8 col-2">
+					   <a href="#0" class="side_panel btn_search_mobile"></a> <!-- /open search panel -->
+						<div class="row no-gutters custom-search-input-2 inner">
+							<div class="col-lg-5">
+								<div class="form-group">
+									<input class="form-control" type="text" placeholder="What are you looking for...">
+									<i class="icon_search"></i>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<input class="form-control" type="text" placeholder="Where">
+									<i class="icon_pin_alt"></i>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<select class="wide">
+									<option>All Categories</option>	
+									<option>Shops</option>
+									<option>Hotels</option>
+									<option>Restaurants</option>
+									<option>Bars</option>
+									<option>Events</option>
+									<option>Fitness</option>
+								</select>
+							</div>
+							<div class="col-lg-1">
+								<input type="submit" value="Search">
+							</div>
+						</div>
+				   </div>
+			   </div>
+			   <!-- /row -->
+		   </div>
+		   <!-- /container -->
+	   	</div>
+	   	<!-- /results -->
+
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets 'bundles/user/css/style.css' 
+				   'bundles/user/css/bootstrap.min.css'
+	               'bundles/user/css/vendors.css'
+	filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    {% endstylesheets %}
+{% endblock %}

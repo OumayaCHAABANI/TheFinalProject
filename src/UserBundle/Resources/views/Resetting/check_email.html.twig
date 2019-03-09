@@ -1,0 +1,141 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+ <div id="page">
+		
+	<header class="header_in">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-12">
+					<div id="logo">
+						<a href="index.html">
+							<img src="img/logo_sticky.svg" width="165" height="35" alt="" class="logo_sticky">
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-9 col-12">
+					<ul id="top_menu">
+						<li><a href="account.html" class="btn_add">Add Listing</a></li>
+						<li><a href="{{ path('fos_user_security_login')}}" id="sign-in" class="login" title="Sign In">Sign In</a></li>
+						<li><a href="wishlist.html" class="wishlist_bt_top" title="Your wishlist">Your wishlist</a></li>
+					</ul>
+					<!-- /top_menu -->
+					<a href="#menu" class="btn_mobile">
+						<div class="hamburger hamburger--spin" id="hamburger">
+							<div class="hamburger-box">
+								<div class="hamburger-inner"></div>
+							</div>
+						</div>
+					</a>
+					<nav id="menu" class="main-menu">
+						<ul>
+							<li><span><a href="">Home</a></span></li>
+							
+							<li><span><a href="#">Trending</a></span></li>
+							<li><span><a href="#">My plan</a></span></li>
+							<li><span><a href="{{ path('fos_user_security_login')}}">Help</a></span></li>
+							<li><span><a href="about.html">About</a></span></li>
+						</ul>
+		</nav>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+		<!-- search_mobile -->
+		<div class="layer"></div>
+		<div id="search_mobile">
+			<a href="#" class="side_panel"><i class="icon_close"></i></a>
+			<div class="custom-search-input-2">
+				<div class="form-group">
+					<input class="form-control" type="text" placeholder="What are you looking..">
+					<i class="icon_search"></i>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" placeholder="Where">
+					<i class="icon_pin_alt"></i>
+				</div>
+				<select class="wide">
+					<option>All Categories</option>	
+					<option>Shops</option>
+					<option>Hotels</option>
+					<option>Restaurants</option>
+					<option>Bars</option>
+					<option>Events</option>
+					<option>Fitness</option>
+				</select>
+				<input type="submit" value="Search">
+			</div>
+		</div>
+		<!-- /search_mobile -->
+	</header>
+	<!-- /header -->
+	
+	<main>
+		<div id="results">
+		   <div class="container">
+			   <div class="row">
+				   <div class="col-lg-3 col-md-4 col-10"></div>
+				   <div class="col-lg-9 col-md-8 col-2">
+					   <a href="#0" class="side_panel btn_search_mobile"></a> <!-- /open search panel -->
+						<div class="row no-gutters custom-search-input-2 inner">
+							<div class="col-lg-5">
+								<div class="form-group">
+									<input class="form-control" type="text" placeholder="What are you looking for...">
+									<i class="icon_search"></i>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<input class="form-control" type="text" placeholder="Where">
+									<i class="icon_pin_alt"></i>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<select class="wide">
+									<option>All Categories</option>	
+									<option>Shops</option>
+									<option>Hotels</option>
+									<option>Restaurants</option>
+									<option>Bars</option>
+									<option>Events</option>
+									<option>Fitness</option>
+								</select>
+							</div>
+							<div class="col-lg-1">
+								<input type="submit" value="Search">
+							</div>
+						</div>
+				   </div>
+			   </div>
+			   <!-- /row -->
+		   </div>
+		   <!-- /container -->
+	   	</div>
+	   	<!-- /results -->
+
+    {% trans_default_domain 'FOSUserBundle' %}
+
+    {% block fos_user_content %}
+    <p>
+    An email has been sent. It contains a link you must click to reset your password.
+    Note: You can only request a new password once within 2 hours.
+
+    If you don't get an email check your spam folder or try again.
+
+    </p>
+    {% endblock %}
+
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets 'bundles/user/css/style.css' 
+				   'bundles/user/css/bootstrap.min.css'
+	               'bundles/user/css/vendors.css'
+	filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    {% endstylesheets %}
+{% endblock %}
+
+

@@ -1,0 +1,45 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+	
+	<nav id="menu" class="fake_menu"></nav>
+	
+	<div id="login">
+		<aside>
+			<figure>
+				<a href="index.html"><img src="img/logo_sticky.svg" width="165" height="35" alt="" class="logo_sticky"></a>
+			</figure>
+
+	<div class="form">
+
+		{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register','id':'form-validate'}}) }}
+		<br>
+		{{ form_widget(form.email,{'label':'Adresse e-mail',
+			'attr':{'placeholder':'Adresse e-mail','class':'form-control'}}) }}
+		<br>
+		{{ form_widget(form.username,{'label':'Nom d\'utilisateur',
+			'attr':{'placeholder':'Nom d\'utlisateur','class':'form-control','minlength':'3','maxlength':'10'}}) }}
+		<br>
+		{{ form_widget(form.plainPassword.first,{'label':'Mot de passe','attr':{'placeholder':'Mot de passe','class':'form-control'}}) }}  <br>
+			{{form_errors(form.plainPassword.first)}} 
+		{{ form_widget(form.plainPassword.second,{'label':'Mot de passe','attr':{'placeholder':'Répéter le mot de passe','class':'form-control'}}) }}
+			{{form_errors(form.plainPassword.second)}}
+		
+	
+		
+        <input type="submit" class="btn_1 rounded full-width add_top_30" value="{{ 'registration.submit'|trans }}" />
+
+		<div class="text-center add_top_10">Already have an acccount? <strong> <a href="{{ path('fos_user_security_login')}}"> Sign In</a></strong></div>
+		<div class="copy">© 2018 Sparker</div>
+		</aside>
+	</div>
+	{% endblock %}
+{% block stylesheets %}
+    {% stylesheets 'bundles/user/css/style.css' 
+				   'bundles/user/css/bootstrap.min.css'
+	               'bundles/user/css/vendors.css'
+	filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    {% endstylesheets %}
+{% endblock %}
